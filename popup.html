@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Gender Replacement</title>
+  <style>
+    body {
+      min-width: 200px;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<div>
+<label for="enableNotifications">Enable Hunting and Patrolling Notifications</label>
+<input type="checkbox" id="enableNotifications">
+  <p><h3>Hunting Timer:</h3>
+  <span id="huntTimer">00m 00s</span></p>
+  <p><h3>Patrolling Timer:</h3>
+  <span id="patrolTimer">00m 00s</span></p>
+  <label for="enableBeetleNotifications">Enable Beetle Battle Notifications</label>
+<input type="checkbox" id="enableBeetleNotifications">
+  <p><h3>Beetle Battle Timer:</h3>
+  <span id="beetleTimer">00m 00s</span></p>
+    <label for="enableTreasureNotifications">Enable Treasure Hunting Notifications</label>
+<input type="checkbox" id="enableTreasureNotifications">
+  <p><h3>Treasure Hunting Timer:</h3>
+  <span id="treasureTimer">00m 00s</span></p>
+</div>
+<h3>Battle Helper</h3>
+<label>
+    <input type="checkbox" id="toggleNpcEffectiveness" />
+    Enable Battle Helper
+  </label>
+ <h3>Breed-Only Trait Checker</h3> 
+  <label for="breedOnlyToggle">Enable Breed-Only Trait Checker</label>
+<input type="checkbox" id="breedOnlyToggle">
+  <br><br>
+  <h3>Explore Cosmetics - Main Account</h3>
+ Enter your Main Account's ID:
+  <input type="text" id="cosmeticUrlInputPrimary" placeholder="e.g., 251887"><br>
+<label for="imageSelect">Select an Explore Skin:</label>
+<select id="imageSelect">
+	<option value="">Default</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/apricot.png">Apricot</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/badwi.png">Badwi</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/blueskin.png">Blue</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/brown.png">Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/bunting.png">Bunting</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/burnt.png">Burnt</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/butterfly.png">Butterfly</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/cinder.png">Cinder</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/clouded.png">Clouded</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/coral.png">Coral</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dark.png">Dark</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/darkbrown.png">Dark Brown</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/doubloon.png">Doubloon</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dudley.png">Dudley</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dusky.png">Dusky</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/echo.png">Echo</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/eggshellblue.png">Eggshell Blue</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/fallow.png">Fallow</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/gray.png">Gray</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/greige.png">Greige</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/growth.png">Growth</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/ink.png">Ink</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lagoon.png">Lagoon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lavender.png">Lavender</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lilac.png">Lilac</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/matte.png">Matte</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/orange.png">Orange</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/pale.png">Pale</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/peach.png">Peach</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/pink.png">Pink</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/plain.png">Plain</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/plum.png">Plum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/quail.png">Quail</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/quartz.png">Quartz</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/red.png">Red</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/ruffian.png">Ruffian</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sandstone.png">Sandstone</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sandy.png">Sandy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sanguine.png">Sanguine</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/tan.png">Tan</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/tawny.png">Tawny</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/wellsummer.png">Wellsummer</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/white.png">White</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/yellow.png">Yellow</option>
+</select><br>
+<label for="baseImageSelect">Select an Explore Base:</label>
+<select id="baseImageSelect">
+	<option value="">Default</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/aardwolf.png">Aardwolf</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/abyssinian.png">Abyssinian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/acacia.png">Acacia</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aether.webp">Aether</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Alabaster.webp">Alabaster</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Albinobase.png">Albino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Almond.webp">Almond</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/amber.png">Amber</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ambrosia.webp">Ambrosia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ammonite.webp">Ammonite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ancestral.webp">Ancestral</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ancestral.webp">Angelic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Anjeer.webp">Anjeer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ankh.webp">Ankh</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Antler.webp">Antler</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Anubis.webp">Anubis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Apricotbase.png">Apricot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Arabica.webp">Arabica</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Arctic.webp">Arctic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ardor.webp">Ardor</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Argent.webp">Argent</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Asali.webp">Asali</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ashen.webp">Ashen</option>	
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Asiatic.webp">Asiatic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aspen.webp">Aspen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Astral.webp">Astral</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Atlas.webp">Atlas</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Auburn.webp">Auburn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aufeis.webp">Aufeis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Augur.webp">Augur</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Azalea.webp">Azalea</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bandit.webp">Bandit</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Basalt.webp">Basalt</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bast.webp">Bast</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Beet.webp">Beet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Beige.webp">Beige</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Birch.webp">Birch</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bisque.webp">Bisque</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bisquit.webp">Bisquit</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Black%20Rose.webp">Black Rose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Black.webp">Black</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blazing.webp">Blazing</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blonde.webp">Blonde</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodbourne.webp">Bloodbourne</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodmoon.webp">Blood Moon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodstone.webp">Bloodstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blue%20Poinsettia.webp">Blue Poinsetta</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blush%20Rose.webp">Blush Rose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bone.webp">Bone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brass.webp">Brass</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brimstone.webp">Brimstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bronze.webp">Bronze</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brown.webp">Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buff.webp">Buff</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bushveld.webp">Bushveld</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buttercream.webp">Buttercream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buttermilk.webp">Buttermilk</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Butternut.webp">Butternut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cabochon.webp">Cabochon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cairngorm.webp">Cairngorm</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Camel.webp">Camel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Caramel.webp">Caramel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/frame_cassis.png">Cassis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cedar.webp">Cedar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Celestial.webp">Celestial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Celsian.webp">Celsian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Champagne.webp">Champagne</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chaos.webp">Chaos</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chartreux.webp">Chartreux</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chatoyant.webp">Chatoyant</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cherry%20Blossom.webp">Cherry Blossom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chestnut.webp">Chestnut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chocolate.webp">Chocolate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/cimmerian.png">Cimmerian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cinnabar.webp">Cinnabar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Citrine.webp">Citrine</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Citron.webp">Citron</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Clear%20White.webp">Clear White</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cloudburst.webp">Cloudburst</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cocoa.webp">Cocoa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Constellation.webp">Constellation</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Copper.webp">Copper</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cotton%20Candy.webp">Cotton Candy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream%20Lighter.webp">Cream Lighter</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream%20darker.webp">Cream Darker</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream.webp">Cream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cremello.webp">Cremello</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cretaceous.webp">Cretaceous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Damu.webp">Damu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dandelion.webp">Dandelion</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Brown.webp">Dark Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Fawn.webp">Dark Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Golden.webp">Dark Golden</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Vanilla.webp">Dark Vanilla</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dawn.webp">Dawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Decennial.webp">Decennial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Deep%20Fawn.webp">Deep Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Demiurge.webp">Demiurge</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Demonic.webp">Demonic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Deshret.webp">Deshret</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Desolate.webp">Desolate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dhahabi.webp">Dhahabi</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Diera.webp">Diera</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dikela.webp">Dikela</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dinar.webp">Dinar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Divine.webp">Divine</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Doubloon.webp">Doubloon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dove%20Gray.webp">Dove Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Drupa.webp">Drupa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Duat.webp">Duat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ducat.webp">Ducat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dun.webp">Dun</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dusty%20Rose.webp">Dove Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dusty.webp">Dusty</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ebony.webp">Ebony</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Eggshell.webp">Eggshell</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Elysian.webp">Elysian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ember.webp">Ember</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ennead.webp">Ennead</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Esker.webp">Esker</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ethereal.webp">Ethereal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fallow.webp">Fallow</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fawn.webp">Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Festive.webp">Festive</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fiery.webp">Fiery</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Finch.webp">Finch</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flamingo.webp">Flamingo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flaxen.webp">Flaxen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flint.webp">Flint</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fossil.webp">Fossil</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Frost.webp">Frost</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Frostbitten.webp">Frostbitten</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fulvous.webp">Fulvous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gilded.webp">Gilded</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ginger.webp">Ginger</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Glacial.webp">Glacial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Glass.webp">Glass</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gleam.png">Gleam</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Goldenrod.webp">Goldenrod</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Goridhe.webp">Goridhe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gray.webp">Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Green.webp">Green</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gregarious.webp">Gregarious</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Grullo.webp">Grullo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Guardian.webp">Guardian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gunmetal%20Gray.webp">Gunmetal Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haliotis.webp">Haliotis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hallowed.webp">Hallowed</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Harbinger.webp">Harbinger</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haruspex.webp">Haruspex</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/HarvestMoon.webp">Harvest Moon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haunted.webp">Haunted</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haze.webp">Haze</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hazelnut.webp">Hazelnut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Heavenly.webp">Heavenly</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hellebore.webp">Hellebore</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Henna.webp">Henna</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hexaplex.webp">Hexaplex</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hibiscus.webp">Hibiscus</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hirola.webp">Hirola</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hoarfrost.webp">Hoarfrost</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Honey.webp">Honey</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Horus.webp">Horus</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Howlite.webp">Howlite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hyena.webp">Hyena</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ice.webp">Ice</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Incense.webp">Incense</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Incorporeal.webp">Incorporeal</option>	
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Inferno.webp">Inferno</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Inpu.webp">Inpu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Interstellar.webp">Interstellar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Isabel.webp">Isabel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ivory.webp">Ivory</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jacana.webp">Jacana</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jacinthe.webp">Jacinthe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jellyfish.webp">Jellyfish</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jet.webp">Jet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Khaki.webp">Khaki</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Khnum.webp">Khnum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Kimanjano.webp">Kimanjano</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Korat.webp">Korat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Kunzite.webp">Kunzite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Labradorite.webp">Labradorite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Latte.webp">Latte</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Lemon.webp">Lemon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Leonid.webp">Leonid</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/light%20cream.webp">Light Cream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/light%20golden.webp">Light Golden</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lilac.webp">Lilac</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/linen.webp">Linen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/liver.webp">Liver</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/locust.webp">Locust</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/luteo.webp">Luteo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/maat.png">Maat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Madagascar.webp">Madagascar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mahogany.webp">Mahogany</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Majivu.webp">Majivu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maltese.webp">Maltese</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Manakabir.png">Manakabir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mandarin.png">Mandarin</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maroon.webp">Maroon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Marula.webp">Marula</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maziwa.webp">Maziwa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Medal.webp">Medal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Medium%20Golden.webp">Medium Gold</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Merlot.webp">Merlot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Meteorite.webp">Meteorite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Misteltoe.webp">Misteltoe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/mobala.png">Mobola</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mongoose.webp">Mongoose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Moonstone.webp">Moonstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/mossagate.png">Moss Agate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mudstone.png">Mudstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mulberry.webp">Mulberry</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mummy.webp">Mummy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Murk.webp">Murk</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mushroom.webp">Mushroom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/nadir.png">Nadir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nacarat.webp">Nacarat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nautilis.webp">Nautilis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nefer.webp">Nefer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nether.webp">Nether</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nomad.webp">Nomad</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nudar.webp">Nudar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nun.webp">Nun</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nuumite.webp">Nuumite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Oatmeal.webp">Oatmeal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Obsidian.webp">Obsidian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ogdoad.webp">Ogdoad</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/olive.webp">Olive</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/onyx.webp">Onyx</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Opal.webp">Opal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Orchid.webp">Orchid</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ornate.webp">Ornate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Outlaw.webp">Outlaw</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Palomino.webp">Palomino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Parahelion.webp">Parahelion</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/PeachBase.webp">Peach</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pearl.webp">Pearl</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pecan.webp">Pecan</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pecora.webp">Pecora</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Penumbra.webp">Penumbra</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Persimmon.webp">Persimmon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pewter.webp">Pewter</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Phantom.webp">Phantom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Plague.webp">Plague</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Platinum.png">Platinum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Powder.png">Powder</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/IMG_2699.png">Prismatic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Progenitor.png">Progenitor</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Protea.webp">Protea</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pulsar.webp">Pulsar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Qahir.webp">Qahir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ra.webp">Ra</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ragdoll.webp">Ragdoll</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Red.webp">Red</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Redwood.webp">Redwood</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Reindeer.webp">Reindeer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rhino.webp">Rhino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rhodonite.webp">Rhodonite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rime.webp">Rime</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/IMG_2714.png">Ripe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rose%20Gold.webp">Rose Gold</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rose%20Pink.webp">Rose Pink</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rosy%20Brown.webp">Rosy Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rough%20Ruby.webp">Rough Ruby</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ruffian_Base.webp">Ruffian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rufous.webp">Rufous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Russet.webp">Russet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rust.webp">Rust</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Saffron.webp">Saffron</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sahara.png">Sahara</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sandy_Base.webp">Sandy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sapela.webp">Sapela</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Savannah.webp">Savannah</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Scallop.webp">Scallop</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Scoundrel.webp">Scoundrel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Seer.webp">Seer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Senegal.png">Senegal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sepia.webp">Sepia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sepulture.webp">Sepulture</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Serruia.webp">Serruia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Seth.webp">Seth</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sha.webp">Sha</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Shard.webp">Shard</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Shedua.webp">Shedua</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sidereal.webp">Sidereal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sienna.webp">Sienna</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Silver.webp">Silver</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Silver%20Gray.webp">Silver Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Skeletal.webp">Skeletal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Skyward.webp">Skyward</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Smog.png">Smog</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/snowflake.png">Snowflake</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Snowpard.webp">Snowpard</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Solaris.webp">Solaris</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Soot.webp">Soot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sorrel.webp">Sorrel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Soul.webp">Soul</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Spectre.webp">Spectre</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Squall.webp">Squall</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Styx.webp">Styx</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ukame.png">Ukame</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Xanthic.webp">Xanthic</option>
+</select>
+ <br>
+  <h3>Explore Cosmetics - Side Account</h3>
+Enter your Side Account's ID:
+ <input type="text" id="cosmeticUrlInputSecondary" placeholder="e.g., 254590"><br>
+<label for="imageSelect2">Select an Explore Skin:</label>
+<select id="imageSelect2">
+	<option value="">Default</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/apricot.png">Apricot</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/badwi.png">Badwi</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/blueskin.png">Blue</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/brown.png">Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/bunting.png">Bunting</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/burnt.png">Burnt</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/butterfly.png">Butterfly</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/cinder.png">Cinder</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/clouded.png">Clouded</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/coral.png">Coral</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dark.png">Dark</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/darkbrown.png">Dark Brown</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/doubloon.png">Doubloon</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dudley.png">Dudley</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/dusky.png">Dusky</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/echo.png">Echo</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/eggshellblue.png">Eggshell Blue</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/fallow.png">Fallow</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/gray.png">Gray</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/greige.png">Greige</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/growth.png">Growth</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/ink.png">Ink</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lagoon.png">Lagoon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lavender.png">Lavender</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lilac.png">Lilac</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/matte.png">Matte</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/orange.png">Orange</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/pale.png">Pale</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/peach.png">Peach</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/pink.png">Pink</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/plain.png">Plain</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/plum.png">Plum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/quail.png">Quail</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/quartz.png">Quartz</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/red.png">Red</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/ruffian.png">Ruffian</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sandstone.png">Sandstone</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sandy.png">Sandy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/sanguine.png">Sanguine</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/tan.png">Tan</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/tawny.png">Tawny</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/wellsummer.png">Wellsummer</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/white.png">White</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/yellow.png">Yellow</option>
+</select><br>
+<label for="baseImageSelect2">Select an Explore Base:</label>
+<select id="baseImageSelect2">
+	<option value="">Default</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/aardwolf.png">Aardwolf</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/abyssinian.png">Abyssinian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/acacia.png">Acacia</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aether.webp">Aether</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Alabaster.webp">Alabaster</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Albinobase.png">Albino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Almond.webp">Almond</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/amber.png">Amber</option>
+    <option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ambrosia.webp">Ambrosia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ammonite.webp">Ammonite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ancestral.webp">Ancestral</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ancestral.webp">Angelic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Anjeer.webp">Anjeer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ankh.webp">Ankh</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Antler.webp">Antler</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Anubis.webp">Anubis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Apricotbase.png">Apricot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Arabica.webp">Arabica</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Arctic.webp">Arctic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ardor.webp">Ardor</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Argent.webp">Argent</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Asali.webp">Asali</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ashen.webp">Ashen</option>	
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Asiatic.webp">Asiatic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aspen.webp">Aspen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Astral.webp">Astral</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Atlas.webp">Atlas</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Auburn.webp">Auburn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Aufeis.webp">Aufeis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Augur.webp">Augur</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Azalea.webp">Azalea</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bandit.webp">Bandit</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Basalt.webp">Basalt</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bast.webp">Bast</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Beet.webp">Beet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Beige.webp">Beige</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Birch.webp">Birch</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bisque.webp">Bisque</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bisquit.webp">Bisquit</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Black%20Rose.webp">Black Rose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Black.webp">Black</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blazing.webp">Blazing</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blonde.webp">Blonde</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodbourne.webp">Bloodbourne</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodmoon.webp">Blood Moon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bloodstone.webp">Bloodstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blue%20Poinsettia.webp">Blue Poinsetta</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Blush%20Rose.webp">Blush Rose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bone.webp">Bone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brass.webp">Brass</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brimstone.webp">Brimstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bronze.webp">Bronze</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Brown.webp">Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buff.webp">Buff</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Bushveld.webp">Bushveld</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buttercream.webp">Buttercream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Buttermilk.webp">Buttermilk</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Butternut.webp">Butternut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cabochon.webp">Cabochon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cairngorm.webp">Cairngorm</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Camel.webp">Camel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Caramel.webp">Caramel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/frame_cassis.png">Cassis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cedar.webp">Cedar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Celestial.webp">Celestial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Celsian.webp">Celsian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Champagne.webp">Champagne</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chaos.webp">Chaos</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chartreux.webp">Chartreux</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chatoyant.webp">Chatoyant</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cherry%20Blossom.webp">Cherry Blossom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chestnut.webp">Chestnut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Chocolate.webp">Chocolate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/cimmerian.png">Cimmerian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cinnabar.webp">Cinnabar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Citrine.webp">Citrine</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Citron.webp">Citron</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Clear%20White.webp">Clear White</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cloudburst.webp">Cloudburst</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cocoa.webp">Cocoa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Constellation.webp">Constellation</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Copper.webp">Copper</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cotton%20Candy.webp">Cotton Candy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream%20Lighter.webp">Cream Lighter</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream%20darker.webp">Cream Darker</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cream.webp">Cream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cremello.webp">Cremello</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Cretaceous.webp">Cretaceous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Damu.webp">Damu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dandelion.webp">Dandelion</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Brown.webp">Dark Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Fawn.webp">Dark Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Golden.webp">Dark Golden</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dark%20Vanilla.webp">Dark Vanilla</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dawn.webp">Dawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Decennial.webp">Decennial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Deep%20Fawn.webp">Deep Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Demiurge.webp">Demiurge</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Demonic.webp">Demonic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Deshret.webp">Deshret</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Desolate.webp">Desolate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dhahabi.webp">Dhahabi</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Diera.webp">Diera</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dikela.webp">Dikela</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dinar.webp">Dinar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Divine.webp">Divine</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Doubloon.webp">Doubloon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dove%20Gray.webp">Dove Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Drupa.webp">Drupa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Duat.webp">Duat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ducat.webp">Ducat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dun.webp">Dun</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dusty%20Rose.webp">Dove Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Dusty.webp">Dusty</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ebony.webp">Ebony</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Eggshell.webp">Eggshell</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Elysian.webp">Elysian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ember.webp">Ember</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ennead.webp">Ennead</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Esker.webp">Esker</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ethereal.webp">Ethereal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fallow.webp">Fallow</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fawn.webp">Fawn</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Festive.webp">Festive</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fiery.webp">Fiery</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Finch.webp">Finch</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flamingo.webp">Flamingo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flaxen.webp">Flaxen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Flint.webp">Flint</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fossil.webp">Fossil</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Frost.webp">Frost</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Frostbitten.webp">Frostbitten</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Fulvous.webp">Fulvous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gilded.webp">Gilded</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ginger.webp">Ginger</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Glacial.webp">Glacial</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Glass.webp">Glass</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gleam.png">Gleam</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Goldenrod.webp">Goldenrod</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Goridhe.webp">Goridhe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gray.webp">Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Green.webp">Green</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gregarious.webp">Gregarious</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Grullo.webp">Grullo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Guardian.webp">Guardian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Gunmetal%20Gray.webp">Gunmetal Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haliotis.webp">Haliotis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hallowed.webp">Hallowed</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Harbinger.webp">Harbinger</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haruspex.webp">Haruspex</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/HarvestMoon.webp">Harvest Moon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haunted.webp">Haunted</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Haze.webp">Haze</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hazelnut.webp">Hazelnut</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Heavenly.webp">Heavenly</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hellebore.webp">Hellebore</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Henna.webp">Henna</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hexaplex.webp">Hexaplex</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hibiscus.webp">Hibiscus</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hirola.webp">Hirola</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hoarfrost.webp">Hoarfrost</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Honey.webp">Honey</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Horus.webp">Horus</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Howlite.webp">Howlite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Hyena.webp">Hyena</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ice.webp">Ice</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Incense.webp">Incense</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Incorporeal.webp">Incorporeal</option>	
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Inferno.webp">Inferno</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Inpu.webp">Inpu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Interstellar.webp">Interstellar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Isabel.webp">Isabel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ivory.webp">Ivory</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jacana.webp">Jacana</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jacinthe.webp">Jacinthe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jellyfish.webp">Jellyfish</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Jet.webp">Jet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Khaki.webp">Khaki</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Khnum.webp">Khnum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Kimanjano.webp">Kimanjano</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Korat.webp">Korat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Kunzite.webp">Kunzite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Labradorite.webp">Labradorite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Latte.webp">Latte</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Lemon.webp">Lemon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Leonid.webp">Leonid</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/light%20cream.webp">Light Cream</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/light%20golden.webp">Light Golden</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/lilac.webp">Lilac</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/linen.webp">Linen</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/liver.webp">Liver</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/locust.webp">Locust</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/luteo.webp">Luteo</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/maat.png">Maat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Madagascar.webp">Madagascar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mahogany.webp">Mahogany</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Majivu.webp">Majivu</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maltese.webp">Maltese</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Manakabir.png">Manakabir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mandarin.png">Mandarin</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maroon.webp">Maroon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Marula.webp">Marula</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Maziwa.webp">Maziwa</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Medal.webp">Medal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Medium%20Golden.webp">Medium Gold</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Merlot.webp">Merlot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Meteorite.webp">Meteorite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Misteltoe.webp">Misteltoe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/mobala.png">Mobola</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mongoose.webp">Mongoose</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Moonstone.webp">Moonstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/mossagate.png">Moss Agate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mudstone.png">Mudstone</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mulberry.webp">Mulberry</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mummy.webp">Mummy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Murk.webp">Murk</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Mushroom.webp">Mushroom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/nadir.png">Nadir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nacarat.webp">Nacarat</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nautilis.webp">Nautilis</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nefer.webp">Nefer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nether.webp">Nether</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nomad.webp">Nomad</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nudar.webp">Nudar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nun.webp">Nun</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Nuumite.webp">Nuumite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Oatmeal.webp">Oatmeal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Obsidian.webp">Obsidian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ogdoad.webp">Ogdoad</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/olive.webp">Olive</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/onyx.webp">Onyx</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Opal.webp">Opal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Orchid.webp">Orchid</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ornate.webp">Ornate</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Outlaw.webp">Outlaw</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Palomino.webp">Palomino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Parahelion.webp">Parahelion</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/PeachBase.webp">Peach</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pearl.webp">Pearl</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pecan.webp">Pecan</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pecora.webp">Pecora</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Penumbra.webp">Penumbra</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Persimmon.webp">Persimmon</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pewter.webp">Pewter</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Phantom.webp">Phantom</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Plague.webp">Plague</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Platinum.png">Platinum</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Powder.png">Powder</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/IMG_2699.png">Prismatic</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Progenitor.png">Progenitor</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Protea.webp">Protea</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Pulsar.webp">Pulsar</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Qahir.webp">Qahir</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ra.webp">Ra</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ragdoll.webp">Ragdoll</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Red.webp">Red</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Redwood.webp">Redwood</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Reindeer.webp">Reindeer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rhino.webp">Rhino</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rhodonite.webp">Rhodonite</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rime.webp">Rime</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/IMG_2714.png">Ripe</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rose%20Gold.webp">Rose Gold</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rose%20Pink.webp">Rose Pink</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rosy%20Brown.webp">Rosy Brown</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rough%20Ruby.webp">Rough Ruby</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ruffian_Base.webp">Ruffian</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rufous.webp">Rufous</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Russet.webp">Russet</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Rust.webp">Rust</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Saffron.webp">Saffron</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sahara.png">Sahara</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sandy_Base.webp">Sandy</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sapela.webp">Sapela</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Savannah.webp">Savannah</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Scallop.webp">Scallop</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Scoundrel.webp">Scoundrel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Seer.webp">Seer</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Senegal.png">Senegal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sepia.webp">Sepia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sepulture.webp">Sepulture</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Serruia.webp">Serruia</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Seth.webp">Seth</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sha.webp">Sha</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Shard.webp">Shard</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Shedua.webp">Shedua</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sidereal.webp">Sidereal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sienna.webp">Sienna</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Silver.webp">Silver</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Silver%20Gray.webp">Silver Gray</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Skeletal.webp">Skeletal</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Skyward.webp">Skyward</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Smog.png">Smog</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/snowflake.png">Snowflake</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/snowflake.png">Snowflake</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Snowpard.webp">Snowpard</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Solaris.webp">Solaris</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Soot.webp">Soot</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Sorrel.webp">Sorrel</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Soul.webp">Soul</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Spectre.webp">Spectre</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Squall.webp">Squall</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Styx.webp">Styx</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Ukame.png">Ukame</option>
+	<option value="https://raw.githubusercontent.com/ghostsofsteel/lioden/refs/heads/main/Xanthic.webp">Xanthic</option>
+</select><br>
+<br><br><label>
+    <input type="checkbox" id="toggleEyeZIndex" />
+    Hide Default Lioden Eyes
+</label>
+<br><br><label>
+    <input type="checkbox" id="toggleFestiveFrame" />
+    Enable Festive Frame
+</label>
+<br><br><label for="fontSize">Set Explore Text Font Size:</label>
+<input type="number" id="fontSize" name="fontSize" min="10" max="50" value="13"> 
+
+<br><br>
+  <h3>Pride Leader Gender Options</h3>
+  <label>
+    <input type="checkbox" id="toggleScript" />
+    Enable Female Gender 
+  </label>
+  <br><br>
+  <label>
+    <input type="checkbox" id="toggleGenderNeutral" />
+    Enable Gender Neutral Language
+  </label>
+<br><br>
+<h3>Claiming Guide</h3>
+Please input information from your favorite claiming guide into these boxes. When claiming a lioness, the information you entered will display.<br>
+<div>
+  <label for="good-lioness">Good Lioness:</label>
+  <input type="text" id="good-lioness" name="good-lioness">
+</div>
+<div>
+  <label for="kind-lioness">Kind Lioness:</label>
+  <input type="text" id="kind-lioness" name="kind-lioness">
+</div>
+<div>
+  <label for="neutral-lioness">Neutral Lioness:</label>
+  <input type="text" id="neutral-lioness" name="neutral-lioness">
+</div>
+<div>
+  <label for="snarky-lioness">Snarky Lioness:</label>
+  <input type="text" id="snarky-lioness" name="snarky-lioness">
+</div>
+<div>
+  <label for="evil-lioness">Evil Lioness:</label>
+  <input type="text" id="evil-lioness" name="evil-lioness">
+</div>
+<br><br>
+<b>Please refresh the page if you do not see any changes.</b>
+  <script src="popup.js"></script>
+</body>
+</html>
